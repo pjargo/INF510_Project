@@ -1,0 +1,36 @@
+INF 510 Final Project
+The contents of project.txt should be the following: 
+1. The names of team member(s) 
+Peter Argo
+
+2. How to run your code (what command-line switches they are, what happens when you invoke the code, etc.) 
+The code is run by walking through the notebook. It is structured in 5 major section that are clearly labeled within the notebook. The MLB_function.py file contains all the required functions and is imported on the first step of the project
+
+3. Any major “gotchas” to the code (i.e. things that don’t work, go slowly, could be improved, etc.)
+Surprisingly, I could not find many MLB API’s that provided useful information within the scope of my project. I believe I creatively exercised the utility of the MLB API contained in my project however in order to scrape for all the data, I takes much longer to process then is ideal.  I tried to make it as efficient as possible by limiting the number of inputs and lines processed but it does have to pull quite a bit of data and process it to get anything relevant. This time issue made it difficult to make much progress when I got to this part of the project and required clever mapping of how the data shall be stored. Additionally, I limited the amount of data I analyzed from the API because of how long it takes to process.
+
+With time I would optimize the algorithm to reduce the amount of time it takes to process the API data.  The API data redundantly pulls data which is done because of how it iterated through the data structure of teams.  There is certainly room to code a conditional statement that would check for repeats and if found input the already scraped data
+ 
+4. Anything else you feel is relevant to the grading of your project your project. 
+Refer to question 3
+
+Also, answer some questions about the project itself: 
+5. What did you set out to study? (i.e. what was the point of your project? This should be close to your Milestone 1 assignment, but if you switched gears or changed things, note it here.) 
+The original intent was to evaluate which MLB team regular season stats had the greatest impact on predicting the teams success in the playoffs. Originally, I wanted to do some method of multi-class evaluation where each team was assigned a score for how far they advanced in the playoffs. However I slightly deviated from this premise to look at each postseason series individually and assign a binary classification of “win” or “not win” in order to analyze the team stats data. The project actually slightly evolved as I gained great understanding of how to execute everything to ultimately performing a logistic regression that could output a probability a team would beat another team in the playoffs. This also would yield the weights of the team stats that I used inductive bias to select. Ultimately the spirit of the project remained however the execution had multiple pivots, many of which were done due to how the data presented itself structurally. 
+
+I also pivoted from one of my data sources because earlier on I ran into trouble extracting the data from the initially proposed webpage and due to time constraints, had to move on.  Only after making a lot of progress on the new data source (fox sports) did I finally discover what my issue with my old data source was. At this point it was too late to go back. The content was largely the same.
+
+6. What did you Discover/what were your conclusions (i.e. what were your findings? Were your original assumptions confirmed, etc.?) 
+I believe the results were mostly in line with what was expected.  I suspected that if I were to successfully be able to complete this project that I would perhaps get some favorable results, however given the limitations with out data size, would require much more statistical scrutiny to draw any major conclusions.  I was under no delusion that I would be able to forecast games with any incredible reliability.  This enterprise is attempted by professionals with much greater resources than I have.  However, I was hoping to demonstrate the logic behind this process and hopefully have a result to discuss at the end.
+
+Ultimately, I got a result that was better than expected but it certainly fluctuated with how I partition my test set and training set. Admittedly I relied on inductive bias. 20% seemed reasonable for this project. I was fortunate that this yielded a positive model. Bottom line: I now expect to win big money betting on MLB postseason series! 
+
+7. What difficulties did you have in completing the project? 
+
+Scraping the data and formatting the data in a logical manner to be able to manipulate efficiently took about 80% of the focus. This was challenging but expected.  The machine learning took less time and was less coding intensive but it was more difficult to understand. From a macro perspective, I knew how the statistical analysis should be performed. But when actually executing the logistic regression, I has difficulty understanding what that target value should be and how to set up the features for each team in each postseason series.  I came up with a few different approaches after much deliberating but felt that none of them were as comprehensive and insightful as I had hoped. I wanted to make the target value to be a binary classification of “home team win” vs. “home team not win” but I could not get this from my data sources. This would present a clean way to analyze the data and also provide a logical paradigm to compare results (assuming the home team wins slightly more than the road team).  I also had difficulties in setting up the features because I had features for two teams and a classifier for the series.  Ultimately, I reasoned to take the difference of the two values, creating a statistical profile for the series itself. Lastly, my binary classifier was “team with better record win” vs. “team with better record not win”. This seemed to be a reasonable choice but I primarily was chose this because it was scrapable from my data sources.
+
+8. What skills did you wish you had while you were doing the project? 
+I wish I was more sound in my statistics background. I was disappointed in the challenges I was running into when completing this analysis. I understood the machine learning topics in a meta perspective but the execution left a lot to be desired.
+
+9. What would you do “next” to expand or augment the project? 
+The obvious improvement would be to play around with the statistics that I chose and see which permutation of team stats yielded the best results for my analysis. It reasons that simply, more data would be better but some baseball statistics have a lot of overlapping information (batting avg vs. on base percentage for example).  I would also expand the types of analyses beyond logistic regression and determine which method yielded the best results. Lastly, I would most like to expand my training and test set. Baseball is fundamentally the most probabilistic of the major American sports and thus would likely require the most data training and test to reduce the noise (or luck). 
